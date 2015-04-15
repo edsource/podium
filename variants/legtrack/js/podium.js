@@ -1,8 +1,16 @@
+/* VARIANT NOTES
+
+ - title only navigation along the side
+
+=======================================*/
+
+
 /* GLOBALS
 =======================================*/
 var thisApp = {
 	data: [],
 	voiceBox: '<div class="rt-voice" voice=""><div><img src=""><h2></h2><h4></h4></div><div><p></p></div></div>',
+	navBox: '<div class="rt-voice" voice=""><div><h2></h2></div></div>', //variant change
 	segBox: '<div class="rt-seg"><div class="rt-seg-voice"></div><div class="rt-seg-content"><h2></h2></div></div>',
 	total: 0,
 	populateSegs:function(total){
@@ -49,7 +57,7 @@ var thisApp = {
 	populateNav: function(total){
 		var ii = 0;
 		for (var i = 1 ; i < total ; i++){
-			$('#rt-nav').append(this.voiceBox);
+			$('#rt-nav').append(this.navBox);
 			$('#rt-nav .rt-voice:eq('+ii+')').attr('voice', i);
 			ii += 1;
 		}
