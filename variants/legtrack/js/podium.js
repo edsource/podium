@@ -1,6 +1,7 @@
 /* VARIANT NOTES
 
  - title only navigation along the side
+ - navigation to the bottom always regardless of screen size
 
 =======================================*/
 

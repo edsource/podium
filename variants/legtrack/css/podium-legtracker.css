@@ -33,12 +33,6 @@ p, a, li {font-family: 'gentium basic', 'serif'}
 }
 
 @media screen and (min-width:700px){
-	#rt-segs {width:71%;position:absolute;margin-right: 1%;}
-	.rt-seg {position:absolute;}
-
-	#rt-nav {float:right;width:25%;border-left: 1px #ddd solid;margin-top: 150px;padding-top: 0;border-top:none;}	
-	#rt-nav .rt-voice {clear:both;height:auto;min-height:0;width:85%;float:none !important;}
-
 	#rt-main .rt-voice {width:40%;margin:20px;clear:none;}
 	#rt-main .rt-voice:nth-of-type(odd) {float:left;}
 	#rt-main .rt-voice:nth-of-type(even) {float:right;}
