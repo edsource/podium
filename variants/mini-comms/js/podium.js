@@ -11,7 +11,7 @@
 var thisApp = {
 	data: [],
 	voiceBox: '<div class="rt-voice" voice=""><div><img src=""><h2></h2><h4></h4></div><div><p></p></div></div>',
-	navBox: '<div class="rt-voice" voice=""><div><h2></h2></div></div>', //variant change
+	navBox: '<div class="rt-voice" voice=""><div><h2></h2></div><div><h4></h4></div></div>', //variant change
 	segBox: '<div class="rt-seg"><div class="rt-seg-voice"></div><div class="rt-seg-content"><h2></h2></div></div>',
 	total: 0,
 	populateSegs:function(total){
@@ -37,22 +37,24 @@ var thisApp = {
 		for (var i = 1 ; i < total ; i++){
 			$('#rt-main .rt-voice:eq('+ii+')').attr('voice', i).on('click', function(){
 				var thisVoice = $(this).attr('voice');
-				$('#rt-main').animate({'opacity':'0'}, 1000, function(){$('#rt-main').remove();});
-				$('#rt-segs').add('.rt-seg[voice='+thisVoice+']').fadeIn(1000, function(){
-					$('#rt-nav').fadeIn(200);
-				});
+				$('#rt-main').animate({'opacity':'0'}, 1, function(){$('#rt-main').remove();});
+				$('#rt-segs').add('.rt-seg[voice='+thisVoice+']').css('display','block');
+				$('#rt-nav').css('display','block');
+				
 			});
 
 			$('#rt-nav .rt-voice:eq('+ii+')').on('click', function(){
 				var thisVoice = $(this).attr('voice');
-				$('.rt-seg:not(.rt-seg[voice='+thisVoice+'])').fadeOut(1);
-				$('.rt-seg[voice='+thisVoice+']').fadeIn(500);
+				$('#toTop').click();
+				$('.rt-seg:not(.rt-seg[voice='+thisVoice+'])').css('display','none');
+				$('.rt-seg[voice='+thisVoice+']').css('display','block');
 			})
 
-			//$('#rt-main .rt-voice:eq('+ii+') img').add('#rt-nav .rt-voice:eq('+ii+') img').add('#rt-segs .rt-voice:eq('+ii+') img').attr('src', thisApp.data[i][3]);
-			$('#rt-main .rt-voice:eq('+ii+') img').add('#rt-nav .rt-voice:eq('+ii+') img').add('#rt-segs .rt-voice:eq('+ii+') img').attr('src', 'http://edsource.org/wp-content/iframe/podium/variants/legtrack/css/law.png');
-			$('#rt-main .rt-voice:eq('+ii+') h2').add('#rt-nav .rt-voice:eq('+ii+') h2').add('#rt-segs .rt-voice:eq('+ii+') h2').text(thisApp.data[i][0]);
+			$('#rt-main .rt-voice:eq('+ii+') img').add('#rt-nav .rt-voice:eq('+ii+') img').add('#rt-segs .rt-voice:eq('+ii+') img').attr('src', thisApp.data[i][3]);
+			$('#rt-main .rt-voice:eq('+ii+') h2').add('#rt-segs .rt-voice:eq('+ii+') h2').text(thisApp.data[i][0]);
 			$('#rt-main .rt-voice:eq('+ii+') h4').add('#rt-nav .rt-voice:eq('+ii+') h4').add('#rt-segs .rt-voice:eq('+ii+') h4').text(thisApp.data[i][1]);
+			$('#rt-nav .rt-voice:eq('+ii+') h2').text(thisApp.data[i][4]);
+			$('#rt-nav .rt-voice:eq('+ii+') h4').text(thisApp.data[i][0]);
 			ii += 1;
 		}
 	},
@@ -81,6 +83,18 @@ var thisApp = {
 	}
 }
 
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+		     'scrollTop': $target.offset().top
+		}, 200, 'swing');
+	});
+});
 
 window.onload = function(){
 	thisApp.createApp();
