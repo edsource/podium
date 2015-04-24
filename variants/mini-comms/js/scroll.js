@@ -1,4 +1,3 @@
-
 /* VARIANT NOTES
 
  - title only navigation along the side

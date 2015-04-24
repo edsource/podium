@@ -1,6 +1,8 @@
-body {font-size:100%;}
-h1, h2, h3, h4, h5 {font-family: 'roboto Condensed', san-serif}
-p, a, li {font-family: 'gentium basic', 'serif'}
+#rt-contain body {font-size:100%;}
+#rt-contain h1, #rt-contain  h2, #rt-contain  h3, #rt-contain  h4, #rt-contain  h5 {font-family: 'roboto Condensed', san-serif}
+#rt-contain p, #rt-contain  a, #rt-contain  li {font-family: 'gentium basic', 'serif'}
+#rt-contain  a {color:#39709f;}
+#rt-contain a:hover {color:#1e3b54;}
 
 #toTop {display:none;}
 
