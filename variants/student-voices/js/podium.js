@@ -4,6 +4,7 @@
  - title only navigation along the side
  - navigation to the bottom always regardless of screen size
  - scroll to topin nav
+ - includes photo inside article
 
 =======================================*/
 
